@@ -1,1 +1,47 @@
 # KWU-AI-Programming
+
+import turtle as t
+
+t.showturtle()
+t.bgcolor('white')
+t.speed(10)
+t.penup()
+t.setposition(0, -100)
+t.pendown()
+
+# 다각형 그리기 함수
+def draw_polygon(side, n, color):
+    t.pensize(1)
+    t.pencolor('black')
+    t.fillcolor(color)
+    t.speed(1)
+    t.begin_fill()
+    
+    for i in range(n):
+        current_x, current_y = t.pos()  # 현재 위치 저장
+        
+        t.forward(side)
+    
+        next_x, next_y = t.pos()  # 다음 변의 시작 위치 저장
+        
+        # 중간 좌표 계산
+        mid_x = (current_x + next_x) / 2
+        mid_y = (current_y + next_y) / 2
+        
+        # 거북이를 중간 좌표로 이동
+        t.goto(mid_x, mid_y)
+        t.stamp()
+        t.goto(next_x,next_y)
+        t.left(180 - (n - 2) * 180 / n)
+    
+    t.end_fill()
+
+# 각 다각형 그리기
+draw_polygon(100, 9, 'springgreen')  # 9각형
+draw_polygon(100, 8, 'pink')  # 8각형
+draw_polygon(100, 7, 'orange')  # 7각형
+draw_polygon(100, 6, 'yellow')  # 6각형
+draw_polygon(100, 5, 'blue')  # 5각형
+draw_polygon(100, 4, 'lawngreen')  # 4각형
+
+t.done()
