@@ -1,5 +1,3 @@
-# KWU-AI-Programming
-
 import turtle as t
 
 t.showturtle()
@@ -44,4 +42,10 @@ draw_polygon(100, 6, 'yellow')  # 6각형
 draw_polygon(100, 5, 'blue')  # 5각형
 draw_polygon(100, 4, 'lawngreen')  # 4각형
 
+t.penup() # 이름 쓸 때 좌표 움직인 만큼 펜이 움직이지 않도록
+
+# 이름 쓰기
+t.goto(30,150)
+t.write("김솔비", font = ("arial", 15, "bold"))
+t.hideturtle() # 거북이 숨기기
 t.done()
