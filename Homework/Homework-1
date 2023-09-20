@@ -1,51 +1,37 @@
 import turtle as t
 
-t.showturtle()
-t.bgcolor('white')
-t.speed(10)
-t.penup()
-t.setposition(0, -100)
-t.pendown()
+t.speed(25)
+Forwardlength = 200
+colors = ["lawngreen", "blue", "yellow", "orange", "lightpink", "lightgreen"]
+t.goto(-125, -200)
 
-# 다각형 그리기 함수
-def draw_polygon(side, n, color):
-    t.pensize(1)
-    t.pencolor('black')
-    t.fillcolor(color)
-    t.speed(1)
+for i in range(9, 3, -1):
+    t.fillcolor(colors[i - 4])
     t.begin_fill()
-    
-    for i in range(n):
-        current_x, current_y = t.pos()  # 현재 위치 저장
-        
-        t.forward(side)
-    
-        next_x, next_y = t.pos()  # 다음 변의 시작 위치 저장
-        
-        # 중간 좌표 계산
-        mid_x = (current_x + next_x) / 2
-        mid_y = (current_y + next_y) / 2
-        
-        # 거북이를 중간 좌표로 이동
-        t.goto(mid_x, mid_y)
+    if i == 4:  # 사각형을 그릴 때
+        t.forward(7)  # x축 방향으로 1만큼 움직임
+        t.stamp()  # stamp 찍기
+        t.backward(7)  # 원래 위치로 돌아옴
+    for _ in range(i):
+        t.forward(Forwardlength/2)
         t.stamp()
-        t.goto(next_x,next_y)
-        t.left(180 - (n - 2) * 180 / n)
-    
+        t.forward(Forwardlength/2)
+        t.left(360 / i)
     t.end_fill()
+    Forwardlength -= 20
+    t.setheading(0)
+    t.forward(10)
 
-# 각 다각형 그리기
-draw_polygon(100, 9, 'springgreen')  # 9각형
-draw_polygon(100, 8, 'pink')  # 8각형
-draw_polygon(100, 7, 'orange')  # 7각형
-draw_polygon(100, 6, 'yellow')  # 6각형
-draw_polygon(100, 5, 'blue')  # 5각형
-draw_polygon(100, 4, 'lawngreen')  # 4각형
+t.goto
+t.hideturtle()
+t.penup()
+t.goto(-20, 270)
+t.pendown()
+t.write("김솔비", align="center", font=("Arial", 35, "bold"))
 
-t.penup() # 이름 쓸 때 좌표 움직인 만큼 펜이 움직이지 않도록
+# 창을 최대화로 키워줌 
+canvas = t.Screen().getcanvas()
+root = canvas.winfo_toplevel()
+root.state('zoomed')
 
-# 이름 쓰기
-t.goto(30,150)
-t.write("김솔비", font = ("arial", 15, "bold"))
-t.hideturtle() # 거북이 숨기기
 t.done()
