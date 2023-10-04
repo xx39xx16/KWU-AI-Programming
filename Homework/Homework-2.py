@@ -1,4 +1,6 @@
-// 모듈 파일
+# 모듈 파일
+# 해당 파일 이름은 Homework2.py로 설정했음
+
 def read_csv_file(filename="hw2.csv"):
     with open(filename, "r", encoding="UTF-8-sig") as file:
         lines = file.readlines()
@@ -56,7 +58,10 @@ def save_grouped_to_file(filename, headers, grouped_data):
                 file.write(",".join(player) + "\n")
 
 
-// 메인 파일 (위에 파일을 저장할 때 이름을 Homework2로 설정했음
+-----------------------------------------------------------------------------------------------------------------
+
+# 메인 파일
+# 메인 파일 파일명은 hw2_1_2020741076.py 로 설정했음 
 
 import Homework2 as kbo
 
