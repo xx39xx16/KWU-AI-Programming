@@ -20,7 +20,7 @@ url = input("워드 클라우드를 생성할 웹사이트의 URL을 입력하�
 driver.get(url)
 
 # 페이지에서 본문 텍스트 가져오기 
-conan_data = driver.find_element(By.XPATH, '//*[@id="JqFElvLbD"]/div[2]/div/div/div/div/div/div/div/div/div[1]/div[5]/div/div/div/div/div/div[5]/div/div/div/div/div/div[14]/div[1]/div/div[23]/div').text
+conan_data = driver.find_element(By.XPATH, '//*[@id="JqFElvLbD"]/div[2]/div/div/div/div/div/div/div[1]/div[5]/div/div[3]/div/div/div/div/div/div/div/div/div[10]/div/div/div/div/div/div/div[1]/div/div[23]/div').text
 
 # 필요없는 단어들 목록 만들기
 s_words = wordcloud.STOPWORDS.union({'네이버','카페','지부','온리전','공식','사이트는','셈','티켓값이','교보문고','감청의 권'})
